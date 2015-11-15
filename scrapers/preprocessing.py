@@ -190,8 +190,6 @@ bf= df[df.cat.isin(category[category.href>1].index)]
 b = pd.pivot_table(bf,index=["cat"],columns=['outlet'],values=["href"],aggfunc=len)
 b = b.fillna('')
 b
-df.to_csv('data/tw-cat.csv',index=False,encoding='utf-8')
 
-
-ax = [sns.kdeplot(tn[tn.outlet==o].rt,label=o) for o in outlets][0]
-ax.set(xlim=(0,500),title='Retweet Distributions',xlabel='Retweet Count',ylabel='Density');
+df= df.drop('newstxt',axis=1)
+df.to_csv('data/tw-sp.csv',index=False,encoding='utf-8')
