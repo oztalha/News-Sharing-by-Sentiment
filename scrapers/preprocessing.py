@@ -33,6 +33,7 @@ df.to_csv('data/tweets/tweet-texts.csv',index=False,encoding='utf-8')
 # LIWC Results Cleaning !!!
 # Done once, doing again corrupts the files
 # ==========================
+"""
 #25599 unique tweets
 tw = pd.read_csv('data/LIWC/LIWC2015 Results (tweet-texts).csv',encoding='utf-8')
 rename = dict(zip(tw.ix[0][:8].index,tw.ix[0][:8].values))
@@ -56,12 +57,13 @@ tn = tn.drop(0)
 tn.to_csv('data/LIWC/LIWC2015 Results (tweeted-news).csv',index=False,encoding='utf-8')
 tweeted = tn.drop('newstxt',axis=1)
 tweeted.to_csv('data/LIWC/tweeted-no-story.csv',index=False,encoding='utf-8')
-
+"""
 
 # ==========================
 # Combining tweets with news !!!
 # Done once, doing again corrupts the files
 # ==========================
+"""
 tw = pd.read_csv('data/LIWC/LIWC2015 Results (tweet-texts).csv',encoding='utf-8')
 tn = pd.read_csv('data/LIWC/LIWC2015 Results (tweeted-news).csv',encoding='utf-8')
 
@@ -91,7 +93,7 @@ df = df.drop_duplicates('twid') #3 among 16912 records: 1 cnn, 1 wapo, 1 fox
 df.to_csv('data/LIWC/tweets-news-combined.csv',index=False,encoding='utf-8')
 df = df.drop('newstxt',axis=1)
 df.to_csv('data/tw-sp.csv',index=False,encoding='utf-8')
-
+"""
 
 """
 The following code is to fix some canonical urls in foxnews hrefs
@@ -193,3 +195,5 @@ b
 
 df= df.drop('newstxt',axis=1)
 df.to_csv('data/tw-sp.csv',index=False,encoding='utf-8')
+
+
